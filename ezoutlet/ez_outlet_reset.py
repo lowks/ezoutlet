@@ -160,8 +160,14 @@ class EzOutletReset:
 class _Parser(object):
     def __init__(self):
         self._parser = argparse.ArgumentParser(description=HELP_TEXT)
-        self._parser.add_argument('target', help=HELP_TEXT_TARGET_ARG)
-        self._parser.add_argument(RESET_TIME_ARG_LONG, RESET_TIME_ARG_SHORT,
+        subparsers = self._parser.add_subparsers()
+
+        self._add_reset_parser(subparsers)
+
+    def _add_reset_parser(self, subparsers):
+        parser_reset = subparsers.add_parser('reset', help='TODO reset help text')
+        parser_reset.add_argument('target', help=HELP_TEXT_TARGET_ARG)
+        parser_reset.add_argument(RESET_TIME_ARG_LONG, RESET_TIME_ARG_SHORT,
                                   type=float,
                                   default=0,
                                   help=HELP_TEXT_RESET_TIME_ARG)

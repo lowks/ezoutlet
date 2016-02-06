@@ -160,7 +160,7 @@ class TestEzOutletReset(unittest.TestCase):
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.EzOutletReset')
-    def test_main_basic(self, mock_ez_outlet_reset):
+    def test_cmd_reset_basic(self, mock_ez_outlet_reset):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with a single argument.
@@ -186,7 +186,7 @@ class TestEzOutletReset(unittest.TestCase):
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.EzOutletReset')
-    def test_main_reset_time_long(self, mock_ez_outlet_reset):
+    def test_cmd_reset_reset_time_long(self, mock_ez_outlet_reset):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with hostname and --reset-time arguments.
@@ -211,7 +211,7 @@ class TestEzOutletReset(unittest.TestCase):
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.EzOutletReset')
-    def test_main_reset_time_short(self, mock_ez_outlet_reset):
+    def test_cmd_reset_reset_time_short(self, mock_ez_outlet_reset):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with hostname and -t arguments.
@@ -235,7 +235,7 @@ class TestEzOutletReset(unittest.TestCase):
 
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
-    def test_main_missing_target(self):
+    def test_cmd_reset_missing_target(self):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with no arguments.
@@ -256,7 +256,7 @@ class TestEzOutletReset(unittest.TestCase):
 
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
-    def test_main_unknown_arg(self, ):
+    def test_cmd_reset_unknown_arg(self, ):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with required arguments and an extra unknown argument.
@@ -278,7 +278,7 @@ class TestEzOutletReset(unittest.TestCase):
 
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stdout', new=StringIO.StringIO())
     @mock.patch('ezoutlet.ez_outlet_reset.sys.stderr', new=StringIO.StringIO())
-    def test_main_reset_time_negative(self):
+    def test_cmd_reset_reset_time_negative(self):
         """
         Given: Mock EzOutletReset.
         When: Calling main() with hostname and negative reset time argument.
